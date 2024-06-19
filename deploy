@@ -1,0 +1,27 @@
+#!/bin/bash -eux
+
+source "$(dirname $0)/bin/conf"
+
+[ "$USER" = "root" ] # USER MUST BE ROOT
+
+### CREATE DIRECTORIES ###
+mkdir -p "$logdir" "$datadir" "$datadir/counters"
+chown apache:apache "$logdir" "$datadir" "$datadir/counters"
+
+### install the system: bin -> appdir(/var/www/sub-domeins/kojimura.xyz/kojimura) ###
+rsync -av --delete "$(dirname $0)/bin/" "$appdir/"
+chown apache:apache "$appdir" -R
+
+### rename fetch-cgi-file using random characters ###
+cd "$appdir"
+rnd=$(cat /dev/urandom | tr -cd 0-9a-zA-Z | head -c 32)
+[ -e "/home/rocky/rnd" ] && rnd=$(cat /home/rocky/rnd) # remove on release!!!
+mv "fetch" "fetch_$rnd.cgi"
+
+### clean articles, pull them from github ###
+rm -rf "${contentsdir:?}"
+cd "$wwwdir"
+git clone "https://github.com/$contents_owner/$contents"
+chown apache:apache "$contentsdir" -R
+
+echo "call fetch_$rnd.cgi from GitHub"
