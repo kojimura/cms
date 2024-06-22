@@ -2,5 +2,5 @@
 body { max-width:1000px; }
 article, nav, header, footer, aside, li { display:block; float:left; }
 
-#article { padding:20px; min-widtrh:300px; max-width:600px; }
+#article { padding:20px; min-width:300px; max-width:600px; }
 #widgets { width:320px; margin:20px; float:right; }
