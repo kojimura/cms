@@ -3,6 +3,5 @@ window.onload = function(){
 }
 
 function lastArticles(num){
-  document.getElementById("last_articles").innerHTML = new Date();
+  document.getElementById("last-articles").innerHTML = new Date();
 }
-
