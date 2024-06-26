@@ -3,5 +3,14 @@ window.onload = function(){
 }
 
 function lastArticles(num){
-  document.getElementById("last-articles").innerHTML = new Date();
+  var httpReq = new XMLHttpRequest();
+  httpReq.onreadystatechange = function(){
+    if(httpReq.readyState != 4 || httpReq.status != 200)
+      return;
+
+    document.getElementById("last-articles").innerHTML = httpReq.responseText;
+  }
+  var url = "/last_articles.cgi?num=" + num;
+  httpReq.open("GET",url,true);
+  httpReq.send(url);
 }
