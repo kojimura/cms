@@ -48,8 +48,8 @@ while read d; do
      print "<a href=\"/?" d "\">" $0 "</a>"}' > "$datadir/$d/link"
 
   ## add ##
-  ymd=$(sed 's/.*//'<"$datadir/$d/created_time")
-  sed "s;</a>;($ymd)&;""$datadir/$d/link" > "$datadir/$d/link_date"
+  ymd=$(sed 's/.*//' < "$datadir/$d/created_time")
+  sed "s;</a>;($ymd)&;" "$datadir/$d/link" > "$datadir/$d/link_date"
 
   touch "$datadir/$d/nav"
 done
