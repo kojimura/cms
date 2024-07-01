@@ -25,7 +25,7 @@ function linkKeywords(){
     document.getElementById("keywords").innerHTML = httpReq.responseText;
   }
   var word = document.getElementById("keywords").innerHTML;
-  var url = "/link_keywords.cgi?num=" + encodeURIComponent(word);
+  var url = "/link_keywords.cgi?keywords=" + encodeURIComponent(word);
   httpReq.open("GET",url,true);
   httpReq.send(null);
 }
