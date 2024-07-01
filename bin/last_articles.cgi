@@ -6,7 +6,6 @@ num=$(tr -dc '0-9' <<< ${QUERY_STRING})
 [ -z "$num" ] && num=10
 
 echo -e "Content-Type: text/html\n\n<h1>Recent posts</h1>"
-
 tac "$datadir/post_list"  |
 head -n "$num"  |
 awk '{print $3}' |
