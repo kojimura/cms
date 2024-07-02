@@ -1,6 +1,7 @@
 window.onload = function(){
   lastArticles(10);
   linkKeywords();
+  fullSearch();
 }
 
 function lastArticles(num){
@@ -29,3 +30,19 @@ function linkKeywords(){
   httpReq.open("GET",url,true);
   httpReq.send(null);
 }
+
+function fullSearch(word){
+  var httpReq = new XMLHttpRequest();
+  httpReq.onreadystatechange = function(){
+    if(httpReq.readyState != 4 || httpReq.status != 200)
+      return;
+    
+    document.getElementById("full-search").innerHTML = httpReq.responseText;
+    document.body.style.cursor = "default";
+  }
+  var url = "/full_search.cgi?word=" + encodeURIComponent(word);
+  httpReq.open("GET",url,true);
+  httpReq.send(null);
+  document.body.style.cursor = "wait";
+}
+
