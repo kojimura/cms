@@ -1,7 +1,7 @@
 window.onload = function(){
   lastArticles(10);
   linkKeywords();
-  fullSearch();
+  fullSearch("");
 }
 
 function lastArticles(num){
@@ -45,4 +45,3 @@ function fullSearch(word){
   httpReq.send(null);
   document.body.style.cursor = "wait";
 }
-
