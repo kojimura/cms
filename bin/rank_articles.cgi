@@ -12,6 +12,6 @@ sed 's;_;/;'                |
 sort -s -k1,1nr             |
 head -n "$num"              |
 while read pv d; do
-  sed "s;</a>;($pv views)&<br />;" "$datasir/$d/link"
+  sed "s;</a>;($pv views)&<br />;" "$datadir/$d/link"
 done                        |
 sed '1iContent-Type: text/html\n\n<h1>PV Ranking</h1>'
