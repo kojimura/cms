@@ -1,5 +1,4 @@
 #!/bin/bash -eux
-
 source "$(dirname $0)/bin/conf"
 
 [ "$USER" = "root" ] # USER MUST BE ROOT
@@ -23,5 +22,10 @@ rm -rf "${contentsdir:?}"
 cd "$wwwdir"
 git clone "https://github.com/$contents_owner/$contents"
 chown apache:apache "$contentsdir" -R
+
+### INITIALIZE ###
+touch "$datadir/INIT"
+chown apache:apache "$datadir/INIT"
+sudo -u apache CONTENT_LENGTH="" "$appdir/fetch_$rnd.cgi"
 
 echo "call fetch_$rnd.cgi from GitHub"
