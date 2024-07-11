@@ -19,8 +19,8 @@ find posts pages -type d                |
 grep -Eo '(posts|pages)/[^/]+'          > $tmp-git-change
 
 rm -f "$datadir/INIT"
+
 ### CREATE/DELETE ARTICLE DIRECTORY ###
-# cat $tmp-git-change > /tmp/diff 
 cat $tmp-git-change |
 while read d; do
   [ -f "$contentsdir/$d/main.md" ] || rm -Rf "$datadir/$d"
@@ -74,12 +74,12 @@ mv $tmp-page_list "$datadir/page_list"
 ### MAKE POST LIST WITH DELETED POSTS
 sort -m $tmp-old-post-list "$datadir/post_list" |
 uniq > $tmp-new-old-list
+
 #cat $tmp-git-change > /tmp/changed  # DEBUG
 
 # MAKE LIST OF POSTS WHOSE NAV MUST BE CHANGED
 cat $tmp-git-change                               |
 xargs -I@ -n 1 grep -C1 "@$" $tmp-new-old-list    |
-#sort -u > /tmp/related  # DEBUG
 sort -u                                           |
 while read ymd hms d ; do
   [ -f "$contentsdir/$d/main.md" ] || continue
@@ -93,6 +93,24 @@ while read ymd hms d ; do
 done
 
 ### MAKE KEYWORD LIST ###
+cd "$contentsdir"
+cat "$tmp-list"                   |
+awk '{print $3 "/main.md"}'       |
+xargs grep -H -m 1 '^Keywords:'   |
+sed 's;/main.md:Kwywords:; ;'     |
+sed 's/ *, */,/g'                 |
+sed 's/  */ /g'                   |
+awk '{gsub(/^/,",",$2);print)'    |
+sed 's/$/,/'                      > $tmp-keyword_list
+mv $tmp_keyword_list "$datadir/keyword_list"
 
 ### MAKE SEARCH FILE ###
-
+cd "$contentsdir"
+cat "$tmp-list"                                 |
+awk '{print $3 "/main.md"}'                     |
+xargs grep -H ^                                 |
+sed 's;/main.md:; ;'                            |
+awk 'a!=$1{c=0;a=$1}c>=2{print}$2~/^---$/{c++}' |
+awk '$2~/^\*$|^#*$.{$2=""}{print}'              |
+awk 'NF>1'                                      > $tmp-all
+mv $tmp-all "$datadir/all_markdown"
