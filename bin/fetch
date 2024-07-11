@@ -80,7 +80,7 @@ uniq > $tmp-new-old-list
 cat $tmp-git-change                               |
 xargs -I@ -n 1 grep -C1 "@$" $tmp-new-old-list    |
 #sort -u > /tmp/related  # DEBUG
-sotr -u                                           |
+sort -u                                           |
 while read ymd hms d ; do
   [ -f "$contentsdir/$d/main.md" ] || continue
   grep -C1 "$d$" "$datadir/post_list"                           |
