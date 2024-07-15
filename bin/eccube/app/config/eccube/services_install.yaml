@@ -1,4 +1,0 @@
-services:
-    Eccube\EventListener\:
-        resource: '../../../src/Eccube/EventListener/*'
-        autoconfigure: false

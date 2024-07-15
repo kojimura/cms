@@ -1,3 +1,0 @@
-1721040502
-DC2_REGION_eccube_entity_master_loginhistorystatus_eccube.entity.master.loginhistorystatus_1
-O:35:"Doctrine\ORM\Cache\EntityCacheEntry":2:{s:4:"data";a:3:{s:2:"id";i:1;s:4:"name";s:6:"成功";s:7:"sort_no";i:1;}s:5:"class";s:39:"Eccube\Entity\Master\LoginHistoryStatus";}

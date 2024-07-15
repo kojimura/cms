@@ -1,3 +1,0 @@
-controllers:
-    resource: ../../../src/Eccube/Controller/Install/
-    type: annotation

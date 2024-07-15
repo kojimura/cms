@@ -1,3 +1,0 @@
-1721044652
-DC2_REGION_eccube_entity_news_eccube.entity.news_1
-O:35:"Doctrine\ORM\Cache\EntityCacheEntry":2:{s:4:"data";a:11:{s:2:"id";i:1;s:12:"publish_date";O:8:"DateTime":3:{s:4:"date";s:26:"2018-09-01 18:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Tokyo";}s:5:"title";s:40:"サイトオープンいたしました!";s:11:"description";s:84:"旬の色どりスイーツとこだわりのジェラートをお届けします。";s:3:"url";N;s:11:"link_method";b:1;s:11:"create_date";O:8:"DateTime":3:{s:4:"date";s:26:"2018-09-01 18:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Tokyo";}s:11:"update_date";O:8:"DateTime":3:{s:4:"date";s:26:"2018-09-01 18:00:00.000000";s:13:"timezone_type";i:3;s:8:"timezone";s:10:"Asia/Tokyo";}s:7:"visible";b:1;s:10:"creator_id";N;s:7:"Creator";N;}s:5:"class";s:18:"Eccube\Entity\News";}

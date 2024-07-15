@@ -1,3 +1,0 @@
-id,name,sort_no,discriminator_type
-1,Tax excl.,0,taxdisplaytype
-2,Tax incl.,1,taxdisplaytype

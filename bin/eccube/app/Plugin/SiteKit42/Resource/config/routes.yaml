@@ -1,3 +1,0 @@
-site_kit_routes:
-  resource: '../../../../PluginData/SiteKit42/routes.yaml'
-  prefix:   /
