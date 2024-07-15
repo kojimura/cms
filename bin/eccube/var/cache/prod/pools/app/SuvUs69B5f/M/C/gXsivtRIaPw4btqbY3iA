@@ -1,0 +1,3 @@
+1721040503
+DC2_REGION_eccube_entity_master_orderstatus_eccube.entity.master.orderstatus_1
+O:35:"Doctrine\ORM\Cache\EntityCacheEntry":2:{s:4:"data";a:4:{s:19:"display_order_count";b:1;s:2:"id";i:1;s:4:"name";s:12:"新規受付";s:7:"sort_no";i:0;}s:5:"class";s:32:"Eccube\Entity\Master\OrderStatus";}

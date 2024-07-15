@@ -1,0 +1,3 @@
+1721040639
+DC2_REGION_eccube_entity_master_customerstatus_eccube.entity.master.customerstatus_1
+O:35:"Doctrine\ORM\Cache\EntityCacheEntry":2:{s:4:"data";a:3:{s:2:"id";i:1;s:4:"name";s:9:"仮会員";s:7:"sort_no";i:0;}s:5:"class";s:35:"Eccube\Entity\Master\CustomerStatus";}
